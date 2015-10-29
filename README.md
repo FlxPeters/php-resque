@@ -45,7 +45,7 @@ use Resque\Resque;
 use Predis\Client;
 
 $resque = new Resque(new Client());
-$resque->enqueue('default_queue', 'App\Job', array('foo' => 'bar'), true);
+$resque->enqueue('default_queue', \App\Job::class, array('foo' => 'bar'), true);
 ```
 
 In order the arguments are: queue, job class, job payload, whether to enable tracking.

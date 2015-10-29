@@ -17,7 +17,7 @@ class WorkerCommand extends Command
         parent::configure();
 
         $this
-            ->setName('worker')
+            ->setName('queue:worker')
             ->setDescription('Runs a Resque worker')
             ->addOption(
                 'queue',
@@ -32,6 +32,9 @@ class WorkerCommand extends Command
                 'Interval in seconds to wait for between reserving jobs',
                 5
             );
+
+        // Add old command name as alias
+        $this->setAliases(['worker']);
     }
 
     /**

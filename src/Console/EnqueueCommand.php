@@ -17,7 +17,7 @@ class EnqueueCommand extends Command
         parent::configure();
 
         $this
-            ->setName('enqueue')
+            ->setName('queue:enqueue')
             ->setDescription('Enqueues a job into a queue')
             ->addArgument(
                 'queue',
@@ -49,6 +49,9 @@ class EnqueueCommand extends Command
                 InputOption::VALUE_NONE,
                 'If present, the job will be tracked'
             );
+
+        // Add old command name as alias
+        $this->setAliases(['enqueue']);
     }
 
     /**
