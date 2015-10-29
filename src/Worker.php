@@ -403,6 +403,7 @@ class Worker implements LoggerAwareInterface
             $queue
         );
 
+        $this->logger->error($exception->getMessage());
         $this->getResque()->getStatistic('failed')->incr();
         $this->getStatistic('failed')->incr();
     }
